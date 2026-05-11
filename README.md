@@ -38,32 +38,8 @@ Dự án này triển khai chức năng Đăng nhập (Login) hoàn chỉnh từ
 - Đảm bảo người dùng chỉ có thể thực hiện các thao tác và truy cập vào các API Endpoint tương ứng với Role của mình (VD: User, Admin).
 
 ---
+# Giao diện trang Login 
 
-## 🚀 Kết quả kiểm thử API Backend (API Testing)
-
-Dưới đây là các kịch bản kiểm thử API đã được thực hiện bằng Postman để chứng minh tính đúng đắn và sự chặt chẽ trong khâu xử lý lỗi của hệ thống.
-
-### 1. POST Login API - Thành công
-**Mô tả:** Khi client cung cấp thông tin đăng nhập (Email/Username và Password) hợp lệ. Hệ thống xử lý thành công, trả về HTTP Status `200 OK` kèm theo thông tin User và chuỗi `access_token` JWT.
-
-<img width="1918" height="877" alt="image" src="https://github.com/user-attachments/assets/5dc85a72-4a48-4bcb-876e-82d28e13cbcb" />
-
-### 2. POST Login API - Sai mật khẩu
-**Mô tả:** Khi client nhập đúng Email/Username nhưng sai mật khẩu. Hệ thống từ chối truy cập, trả về HTTP Status `401 Unauthorized` hoặc `400 Bad Request` kèm thông báo lỗi "Thông tin đăng nhập không chính xác".
-
-<img width="1917" height="753" alt="image" src="https://github.com/user-attachments/assets/f633a8ca-95ca-49ea-a404-6f5bd17ba82b" />
-
-### 3. POST Login API - Thiếu Validation
-**Mô tả:** Khi request body từ client gửi lên bị thiếu các trường bắt buộc hoặc sai định dạng (email không có `@`). Lớp Middleware Validation bắt lỗi ngay lập tức và trả về HTTP Status `400 Bad Request`.
-
-<img width="1915" height="777" alt="image" src="https://github.com/user-attachments/assets/8854117f-bf6f-4ff9-bc19-9f55863d6b79" />
-
-### 4. POST Login API - Bị chặn RateLimit
-**Mô tả:** Khi một IP cố tình gửi quá nhiều request đăng nhập liên tục trong thời gian ngắn. Hệ thống kích hoạt Rate Limit, chặn các request tiếp theo và trả về HTTP Status `429 Too Many Requests`.
-
-<img width="1904" height="761" alt="image" src="https://github.com/user-attachments/assets/3adb05f1-7e05-4880-9882-d54054828bc9" />
-
----
 
 ## 🛠️ Công nghệ & Thư viện sử dụng
 - **Nền tảng Backend:** Node.js, Express.js
